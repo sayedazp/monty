@@ -7,6 +7,7 @@
 * @argv: pointer of arguments
 * Return: integer declaring the state
 */
+driver_t drivers = {NULL, NULL, NULL};
 int main(int argc, char *argv[])
 {
 	driver_t drivers = {NULL, NULL, NULL};
@@ -16,7 +17,7 @@ int main(int argc, char *argv[])
 	unsigned int cnt = 0;
 	stack_t *stack = NULL;
 
-	if (argc != 2)
+	if (argc == 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);

@@ -1,5 +1,4 @@
 #include "monty.h"
-driver_t drivers = {NULL, NULL, NULL};
 /**
 * set_arg - sets the global variable
 * @_arg: char pointer to arguements

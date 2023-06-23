@@ -15,12 +15,12 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
 
-	if (argc == 2)
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen("0.m", "r");
+	file = fopen(argv[1], "r");
 	drivers.file = file;
 	if (!file)
 	{

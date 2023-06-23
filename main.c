@@ -1,4 +1,6 @@
 #include "monty.h"
+#define  _GNU_SOURCE
+#include <stdio.h>
 /**
 * main - entry point func
 * @argc: arguements count

@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
 * assign - executes the opcode
 * @stack: head linked list - stack
@@ -14,9 +15,6 @@ int assign(stack_t **stack, unsigned int counter)
 				};
 	unsigned int i = 0;
 	char *op;
-	char **arg = &drivers.arg;
-	char **cont = &drivers.content;
-
 
 	op = strtok(drivers.content, " \n\t");
 	if (op && op[0] == '#')

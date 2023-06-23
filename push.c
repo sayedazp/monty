@@ -24,8 +24,6 @@ void perr(stack_t **head, int counter)
 void f_push(stack_t **head, unsigned int counter)
 {
 	int j = 0, n;
-	int flag;
-
 
 	if (!drivers.arg)
 	{
@@ -35,8 +33,6 @@ void f_push(stack_t **head, unsigned int counter)
 		j++;
 	while (drivers.arg[j] != '\0')
 	{
-		if (drivers.arg[j + 1] == '\0' & drivers.arg[j] == '$')
-			drivers.arg[j] == '\0';
 		if (drivers.arg[j] > 57 || drivers.arg[j] < 48)
 			perr(head, counter);
 		j++;

@@ -1,4 +1,5 @@
 #include "monty.h"
+drivers_t drivers = {NULL, NULL, NULL, 0};
 /**
 * main - monty code interpreter
 * @argc: number of arguments
@@ -14,12 +15,12 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
 
-	if (argc != 2)
+	if (argc == 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
+	file = fopen("0.m", "r");
 	drivers.file = file;
 	if (!file)
 	{
@@ -34,7 +35,7 @@ int main(int argc, char *argv[])
 		counter++;
 		if (read_line > 0)
 		{
-			assign(&stack, counter);
+			assign(content, &stack, counter, file);
 		}
 		free(content);
 	}

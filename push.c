@@ -1,42 +1,37 @@
 #include "monty.h"
-
 /**
- * perr - func to print in stderr
+ * f_push - add node to the stack
  * @head: stack head
- * @counter: no used
+ * @counter: line_number
  * Return: no return
 */
-void perr(stack_t **head, int counter)
-{
-	fprintf(stderr, "L%d: usage: push integer\n", counter);
-	fclose(drivers.file);
-	free(drivers.content);
-	free_stack(*head);
-	exit(EXIT_FAILURE);
-}
-/**
- * f_push - func to print in stderr
- * @head: stack head
- * @counter: no used
- * Return: no return
-*/
-
 void f_push(stack_t **head, unsigned int counter)
 {
-	int j = 0, n;
+	int n, j = 0, flag = 0;
 
-	if (!drivers.arg)
+	if (bus.arg)
 	{
-		perr(head, counter);
-	}
-	if (drivers.arg[0] == '-')
-		j++;
-	while (drivers.arg[j] != '\0')
-	{
-		if (drivers.arg[j] > 57 || drivers.arg[j] < 48)
-			perr(head, counter);
-		j++;
-	}
-	n = atoi(drivers.arg);
-	add_dnodeint(head, n);
+		if (bus.arg[0] == '-')
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
+		{
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+				flag = 1; }
+		if (flag == 1)
+		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE); }}
+	else
+	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE); }
+	n = atoi(bus.arg);
+	if (bus.lifi == 0)
+		addnode(head, n);
+	else
+		addqueue(head, n);
 }
